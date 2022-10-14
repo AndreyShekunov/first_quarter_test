@@ -43,15 +43,33 @@ int SizeArray(string[] arr, int сharacters)
     return size;
 }
 
+// метод создания и заполнения нового массива из строк, длина которых меньше либо равна simbol.
+string[] GetResultArray(string[] arr, int size, int сharacters)
+{
+    string[] newArray = new string[size];
+    int indexNewArray = 0;
+    for (int indexArray = 0; indexArray < arr.Length; indexArray++)
+    {
+        int length = arr[indexArray].Length;
+        if (length <= сharacters)
+        {
+            newArray[indexNewArray] = arr[indexArray];
+            indexNewArray++;
+        }
+    }
+    return newArray;
+}
+
 // метод вывода массива в терминал
-void PrintArray(string[] array) 
+void PrintArray(string[] array)
 {
     int count = array.Length;
-
+    Console.Write("[ ");
     for (int i = 0; i < count; i++)
     {
         Console.Write($"'{array[i]}' ");
     }
+    Console.Write("]");
     Console.WriteLine();
 }
 
@@ -61,4 +79,7 @@ int simbol = ReadNumber("Введите максимальную длину ст
 Console.WriteLine("Массив пользователя:");
 PrintArray(array);
 int sizeNewArray = SizeArray(array, simbol);
-Console.WriteLine($"Размер нового массива = {sizeNewArray}");
+Console.WriteLine(sizeNewArray);
+string[] newArray = GetResultArray(array, sizeNewArray, simbol);
+Console.WriteLine("Полученный массив:");
+PrintArray(newArray);
