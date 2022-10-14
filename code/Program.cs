@@ -28,6 +28,21 @@ string[] GetArray(int size)
     return array;
 }
 
+// метод для определения размера нового массива newArray
+int SizeArray(string[] arr, int сharacters)
+{
+    int size = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        int length = arr[i].Length;
+        if (length <= сharacters)
+        {
+            size++;
+        }
+    }
+    return size;
+}
+
 // метод вывода массива в терминал
 void PrintArray(string[] array) 
 {
@@ -42,4 +57,8 @@ void PrintArray(string[] array)
 
 int sizeArray = ReadNumber("Введите размер создаваемого массива:");
 string[] array = GetArray(sizeArray);
+int simbol = ReadNumber("Введите максимальную длину строки для элементов нового массива:");
+Console.WriteLine("Массив пользователя:");
 PrintArray(array);
+int sizeNewArray = SizeArray(array, simbol);
+Console.WriteLine($"Размер нового массива = {sizeNewArray}");
