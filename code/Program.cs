@@ -79,7 +79,6 @@ int simbol = ReadNumber("Введите максимальную длину ст
 Console.WriteLine("Массив пользователя:");
 PrintArray(array);
 int sizeNewArray = SizeArray(array, simbol);
-Console.WriteLine(sizeNewArray);
 string[] newArray = GetResultArray(array, sizeNewArray, simbol);
 Console.WriteLine("Полученный массив:");
 PrintArray(newArray);
